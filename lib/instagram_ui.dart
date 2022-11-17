@@ -9,22 +9,16 @@ import 'package:flutter_application_1/instagram_ui/ui_parts/post_body.dart';
 import 'package:flutter_application_1/instagram_ui/ui_parts/text_bar.dart';
 
 class InstagramUi extends StatelessWidget {
-  List<PostModel> convertDataToPosts() {
-    return posts.map((e) {
-      return PostModel.fromMap(e);
-    }).toList();
-  }
-
+  List categories = ['Clothes', 'Kids', 'Electronics'];
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
         appBar: InstagramAppbar(),
-        body: SingleChildScrollView(
-          child: Column(
-              children: convertDataToPosts().map((e) {
-            return InstagramPost(e);
-          }).toList()),
-        ));
+        body: ListView.builder(
+            itemCount: posts.length,
+            itemBuilder: (context, index) {
+              return InstagramPost(PostModel.fromMap(posts[index]));
+            }));
   }
 }
