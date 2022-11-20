@@ -1,40 +1,57 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data/data.dart';
+import 'package:flutter_application_1/data/post_model.dart';
 
 class InstagramIconsBar extends StatelessWidget {
+  PostModel postModel;
+  Function fun;
+  InstagramIconsBar(this.postModel,this.fun);
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: Row(
         children: [
-        const  SizedBox(
+          const SizedBox(
             width: 10,
           ),
-          Image.asset(
-            'images/like.png',
-            width: 25,
+          InkWell(
+            onTap: () {
+             fun(postModel);
+            },
+            child: Image.asset(
+              postModel.isLike
+                  ? 'images/selected_like.png'
+                  : 'images/like.png',
+              width: 25,
+            ),
           ),
-         const SizedBox(
+          const SizedBox(
             width: 10,
           ),
-          Image.asset(
-            'images/comment.png',
-            width: 25,
+          InkWell(
+            child: Image.asset(
+              'images/comment.png',
+              width: 25,
+            ),
           ),
-        const  SizedBox(
+          const SizedBox(
             width: 10,
           ),
           Image.asset(
             'images/share.png',
             width: 25,
           ),
-        const  Spacer(),
+          const Spacer(),
           Image.asset(
             'images/save.png',
             width: 25,
           ),
-        const  SizedBox(
+          const SizedBox(
             width: 10,
           ),
         ],

@@ -7,7 +7,8 @@ import 'package:flutter_application_1/instagram_ui/ui_parts/text_bar.dart';
 
 class InstagramPost extends StatelessWidget {
   PostModel postModel;
-  InstagramPost(this.postModel);
+  Function function;
+  InstagramPost(this.postModel,this.function);
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -16,9 +17,9 @@ class InstagramPost extends StatelessWidget {
       children: [
         InstagramHeader(postModel.instagramUser!),
         InstagramPostBody(postModel.image!),
-        InstagramIconsBar(),
-        InstagramTextBar(postModel.content!)
-      ,const Divider()
+        InstagramIconsBar(postModel,function),
+        InstagramTextBar(postModel.content!),
+        const Divider()
       ],
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/instagram_ui.dart';
+import 'package:flutter_application_1/instagram_ui/screens/instegram_screen.dart';
 import 'package:flutter_application_1/scrolables/gridview_builder_example.dart';
 import 'package:flutter_application_1/scrolables/listview_builder_example.dart';
 import 'package:flutter_application_1/stateful_screen/stateful_screen.dart';
@@ -29,7 +30,7 @@ class _InitClassState extends State<InitClass> {
     // TODO: implement build
     return MaterialApp(
         theme: isDark ? ThemeData.dark() : ThemeData.light(),
-        home: StatefulScreen(changeTheme));
+        home: InstegramScreen());
   }
 }
 
